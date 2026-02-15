@@ -1,3 +1,7 @@
+import followers from "@/public/group-2.jpeg";
+import leaders from "@/public/lead.jpeg";
+import Image from "next/image";
+
 export const metadata = {
   title: "About",
 };
@@ -35,20 +39,31 @@ export default function Page() {
         </div>
       </div>
 
-      <div className="col-span-2">
-        <img
-          src="/about-1.jpg"
-          alt="Family sitting around a fire pit in front of cabin"
+      <div className="col-span-2 relative aspect-square">
+        <Image
+          src={followers}
+          fill
+          className="object-cover"
+          quality={80}
+          placeholder="blur"
+          alt="Followes we started the first bachata class with "
         />
       </div>
 
-      <div className="col-span-2">
-        <img src="/about-2.jpg" alt="Family that manages The Wild Oasis" />
+      <div className="col-span-2 relative aspect-square">
+        <Image
+          src={leaders}
+          fill
+          className="object-cover"
+          placeholder="blur"
+          quality={80}
+          alt="Leaders of Freedom Dance Studio"
+        />
       </div>
 
       <div className="col-span-3">
         <h1 className="text-4xl mb-10 text-accent-400 font-medium">
-          Managed by our family since 1962
+          Managed by Stevenson since 2023
         </h1>
 
         <div className="space-y-8">
