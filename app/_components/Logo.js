@@ -6,11 +6,11 @@ function Logo() {
     <Link href="/" className="flex items-center gap-4 z-10">
       <Image
         src="/logo.jpg"
-        width={40}
-        height={40}
+        width={60}
+        height={60}
         style={{
-          width: "22%",
-          height: "50vh",
+          borderRadius: "50%",
+          margin: "10px 20px",
         }}
         alt="The Freedom Dance Studio logo"
       />

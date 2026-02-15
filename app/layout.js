@@ -1,15 +1,19 @@
 import Logo from "./_components/Logo";
 import Navigation from "./_components/navigation";
+import "./_styles/globals.css";
 
 export const metadata = {
-  title: "Freedom Dance Studio",
+  title: {
+    template: "%s | Freedom Dance Studio",
+    default: "Welcome | Freedom Dance Studio",
+  },
   description: "A dance studio in the heart of the city.",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
+      <body className="bg-primary-950 text-primary-100 min-h-screen">
         <header>
           <Logo />
           <Navigation />

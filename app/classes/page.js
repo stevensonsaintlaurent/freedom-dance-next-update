@@ -1,5 +1,9 @@
 import ClasseCard from "@/app/_components/ClasseCard";
 
+export const metadata = {
+  title: "Classes",
+};
+
 export default function Page() {
   // CHANGE
   const classes = [];

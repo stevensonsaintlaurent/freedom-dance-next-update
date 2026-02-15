@@ -1,4 +1,6 @@
-import React from "react";
+export const metadata = {
+  title: "Account",
+};
 
 const Page = () => {
   return <h2>account page</h2>;
