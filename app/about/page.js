@@ -1,4 +1,4 @@
-import followers from "@/public/group-2.jpeg";
+import followers from "@/public/stevens.jpeg";
 import leaders from "@/public/lead.jpeg";
 import Image from "next/image";
 

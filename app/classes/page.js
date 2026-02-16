@@ -1,12 +1,13 @@
 import ClasseCard from "@/app/_components/ClasseCard";
+import { getClasses } from "../_lib/data-service";
 
 export const metadata = {
   title: "Classes",
 };
 
-export default function Page() {
+export default async function Page() {
   // CHANGE
-  const classes = [];
+  const classes = await getClasses();
 
   return (
     <div>
