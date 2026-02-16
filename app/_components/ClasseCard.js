@@ -1,7 +1,8 @@
 import { UsersIcon } from "@heroicons/react/16/solid";
 
-function ClasseCard({ classes }) {
-  const { name, maxCapacity, regularPrice, discount, image } = classes;
+function ClasseCard({ danceClass }) {
+  console.log("Rendering ClasseCard with class:", danceClass);
+  const { id, name, maxCapacity, regularPrice, discount, image } = danceClass;
 
   return (
     <div className="flex border-primary-800 border">

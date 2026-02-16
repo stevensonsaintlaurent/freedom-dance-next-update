@@ -8,6 +8,7 @@ export const metadata = {
 export default async function Page() {
   // CHANGE
   const classes = await getClasses();
+  console.log("Classes fetched in Page component:", classes);
 
   return (
     <div>
@@ -24,8 +25,8 @@ export default async function Page() {
 
       {classes.length > 0 && (
         <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 xl:gap-14">
-          {classes.map((cabin) => (
-            <ClasseCard class={cabin} key={cabin.id} />
+          {classes.map((danceClass) => (
+            <ClasseCard danceClass={danceClass} key={danceClass.id} />
           ))}
         </div>
       )}
