@@ -1,17 +1,20 @@
 import { UsersIcon } from "@heroicons/react/16/solid";
+import Image from "next/image";
+import Link from "next/link";
 
 function ClasseCard({ danceClass }) {
-  console.log("Rendering ClasseCard with class:", danceClass);
   const { id, name, maxCapacity, regularPrice, discount, image } = danceClass;
 
   return (
     <div className="flex border-primary-800 border">
-      <img
-        src={image}
-        alt={`Class ${name}`}
-        className="flex-1 border-r border-primary-800"
-      />
-
+      <div className="flex-1 relative">
+        <Image
+          fill
+          src={image}
+          alt={`Class ${name}`}
+          className="object-cover border-r border-primary-800"
+        />
+      </div>
       <div className="flex-grow">
         <div className="pt-5 pb-4 px-7 bg-primary-950">
           <h3 className="text-accent-500 font-semibold text-2xl mb-3">
@@ -43,12 +46,12 @@ function ClasseCard({ danceClass }) {
         </div>
 
         <div className="bg-primary-950 border-t border-t-primary-800 text-right">
-          <a
+          <Link
             href={`/classes/${id}`}
             className="border-l border-primary-800 py-4 px-6 inline-block hover:bg-accent-600 transition-all hover:text-primary-900"
           >
             Details & reservation &rarr;
-          </a>
+          </Link>
         </div>
       </div>
     </div>

@@ -45,7 +45,6 @@ export const getClasses = async function () {
     console.error(error);
     throw new Error("Classes could not be loaded");
   }
-  console.log("Classes loaded:", data);
 
   return data;
 };

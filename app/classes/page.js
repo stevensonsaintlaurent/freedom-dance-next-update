@@ -8,7 +8,6 @@ export const metadata = {
 export default async function Page() {
   // CHANGE
   const classes = await getClasses();
-  console.log("Classes fetched in Page component:", classes);
 
   return (
     <div>
