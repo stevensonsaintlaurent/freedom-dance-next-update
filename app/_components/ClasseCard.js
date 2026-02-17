@@ -41,7 +41,7 @@ function ClasseCard({ danceClass }) {
             ) : (
               <span className="text-3xl font-[350]">${regularPrice}</span>
             )}
-            <span className="text-primary-200">/ night</span>
+            <span className="text-primary-200">/ Hour</span>
           </p>
         </div>
 

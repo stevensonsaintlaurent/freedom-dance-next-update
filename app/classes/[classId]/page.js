@@ -59,7 +59,7 @@ export default async function Page({ params }) {
               <MapPinIcon className="h-5 w-5 text-primary-600" />
               <span className="text-lg">
                 Located in the heart of the{" "}
-                <span className="font-bold">Dolomites</span> (Italy)
+                <span className="font-bold">Las Vegas</span> (United States)
               </span>
             </li>
 
