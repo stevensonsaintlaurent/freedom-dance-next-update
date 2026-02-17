@@ -4,7 +4,7 @@ import { supabase } from "./supabase";
 /////////////
 // GET
 
-export async function getCabin(id) {
+export async function getClass(id) {
   const { data, error } = await supabase
     .from("classes")
     .select("*")
