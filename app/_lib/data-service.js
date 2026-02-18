@@ -1,5 +1,6 @@
 import { eachDayOfInterval } from "date-fns";
 import { supabase } from "./supabase";
+import NotFound from "../not-found";
 
 /////////////
 // GET
@@ -16,6 +17,7 @@ export async function getClass(id) {
 
   if (error) {
     console.error(error);
+    NotFound();
   }
 
   return data;
