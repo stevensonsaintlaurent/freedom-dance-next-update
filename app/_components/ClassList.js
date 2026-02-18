@@ -1,11 +1,37 @@
-import { getClasses } from "../_lib/data-service";
+// export const dynamic = "force-dynamic";
+
+"use client";
+
+import { useEffect, useState } from "react";
+import { getData } from "../_lib/data-service";
 import ClasseCard from "./ClasseCard";
+import { supabase } from "../_lib/supabase";
 export const metadata = {
   title: "Classes",
 };
 
-async function ClassList() {
-  const classes = await getClasses();
+function ClassList() {
+  const [classes, setClasses] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    async function fetchClasses() {
+      const { data, error } = await supabase.from("classes").select("*");
+
+      if (error) {
+        setError(error.message);
+      } else {
+        setClasses(data);
+      }
+
+      setLoading(false);
+    }
+
+    fetchClasses();
+  }, []);
+
+  console.log("classlistclasses", classes);
   if (!classes.length) return null;
   return (
     <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 xl:gap-14">

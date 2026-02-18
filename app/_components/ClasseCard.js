@@ -8,7 +8,7 @@ function ClasseCard({ danceClass }) {
   return (
     <div className="flex border-primary-800 border">
       <div className="flex-1 relative">
-        <Image
+        <img
           fill
           src={image}
           alt={`Class ${name}`}

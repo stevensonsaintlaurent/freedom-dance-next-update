@@ -13,10 +13,25 @@
 // };
 
 // export default nextConfig;
+// /** @type {import('next').NextConfig} */
+// const nextConfig = {
+//   images: {
+//     domains: ["kwheetxienedgekhjquf.supabase.co"],
+//   },
+// };
+
+// export default nextConfig;
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["kwheetxienedgekhjquf.supabase.co"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "kwheetxienedgekhjquf.supabase.co",
+        pathname: "/storage/v1/object/public/**",
+      },
+    ],
+    minimumCacheTTL: 5, // seconds
   },
 };
 

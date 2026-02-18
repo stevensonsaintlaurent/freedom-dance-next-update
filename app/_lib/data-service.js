@@ -37,20 +37,17 @@ export async function getCabinPrice(id) {
   return data;
 }
 
-export const getClasses = async function () {
-  const { data, error } = await supabase
-    .from("classes")
-    .select("id, name, maxCapacity, regularPrice, discount, image")
-    .order("name");
+export const getData = async function () {
+  let { data, error } = await supabase.from("classes").select("*");
 
   if (error) {
     console.error(error);
     throw new Error("Classes could not be loaded");
   }
 
+  console.log("data", data);
   return data;
 };
-
 // Guests are uniquely identified by their email address
 export async function getGuest(email) {
   const { data, error } = await supabase
