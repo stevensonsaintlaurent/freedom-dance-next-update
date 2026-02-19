@@ -1,34 +1,35 @@
-"use client";
+// "use client";
 
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import { getData } from "../_lib/data-service";
 import ClasseCard from "./ClasseCard";
-import { supabase } from "../_lib/supabase";
+// import { supabase } from "../_lib/supabase";
 export const metadata = {
   title: "Classes",
 };
 
-function ClassList() {
-  const [classes, setClasses] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+export const revalidate = 0;
+async function ClassList() {
+  // const [classes, setClasses] = useState([]);
+  // const [loading, setLoading] = useState(true);
+  // const [error, setError] = useState(null);
 
-  useEffect(() => {
-    async function fetchClasses() {
-      const { data, error } = await supabase.from("classes").select("*");
+  // useEffect(() => {
+  //   async function fetchClasses() {
+  //     const { data, error } = await supabase.from("classes").select("*");
 
-      if (error) {
-        setError(error.message);
-      } else {
-        setClasses(data);
-      }
+  //     if (error) {
+  //       setError(error.message);
+  //     } else {
+  //       setClasses(data);
+  //     }
 
-      setLoading(false);
-    }
+  //     setLoading(false);
+  //   }
 
-    fetchClasses();
-  }, []);
-  // const classes = await getData();
+  //   fetchClasses();
+  // }, []);
+  const classes = await getData();
 
   if (!classes.length) return null;
   return (
