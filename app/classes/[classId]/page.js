@@ -1,4 +1,4 @@
-import { getClass } from "@/app/_lib/data-service";
+import { getClass, getData } from "@/app/_lib/data-service";
 import { EyeSlashIcon, MapPinIcon, UsersIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 
@@ -20,6 +20,13 @@ export async function generateMetadata({ params }) {
   return {
     title: `Class ${name}`,
   };
+}
+
+export async function generateStaticParams() {
+  const classes = await getData();
+  const ids = classes.map((danceClass) => ({ classId: String(danceClass.id) }));
+  console.log("generateStaticParams", ids);
+  return ids;
 }
 
 export default async function Page({ params }) {
