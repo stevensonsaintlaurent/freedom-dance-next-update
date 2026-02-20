@@ -6,10 +6,12 @@ function ClasseCard({ danceClass }) {
   const { id, name, maxCapacity, regularPrice, discount, image } = danceClass;
 
   let classNames;
-  if (name === "Event Center" || name === "Jazz-Band" || name === "orchestra") {
+  if (name === "Event Center" || name === "Jazz-Band") {
     classNames = "";
+  } else if (name === "orchestra ") {
+    classNames = "Rehaesal";
   } else {
-    classNames = "class";
+    classNames = "Class";
   }
 
   return (

@@ -33,7 +33,7 @@ export async function generateMetadata({ params }) {
 export async function generateStaticParams() {
   const classes = await getData();
   const ids = classes.map((danceClass) => ({ classId: String(danceClass.id) }));
-  console.log("generateStaticParams", ids);
+
   return ids;
 }
 
@@ -43,11 +43,14 @@ export default async function Page({ params }) {
     danceClass;
 
   let classNames;
-  if (name === "orchestra" || name === "Event Center" || name === "Jazz-Band") {
+  if (name === "Event Center" || name === "Jazz-Band") {
     classNames = "";
+  } else if (name === "orchestra ") {
+    classNames = "Rehaesal";
   } else {
-    classNames = "class";
+    classNames = "Class";
   }
+  console.log("id", name);
   return (
     <div className="max-w-6xl mx-auto mt-8">
       <div className="grid grid-cols-[3fr_4fr] gap-20 border border-primary-800 py-3 px-10 mb-24">

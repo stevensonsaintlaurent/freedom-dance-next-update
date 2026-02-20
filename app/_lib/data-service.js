@@ -45,7 +45,6 @@ export const getData = async function () {
     throw new Error("Classes could not be loaded");
   }
 
-  console.log("data", data);
   return data;
 };
 // Guests are uniquely identified by their email address
