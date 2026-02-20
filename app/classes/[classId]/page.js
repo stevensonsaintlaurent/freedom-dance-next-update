@@ -17,8 +17,16 @@ import Image from "next/image";
 
 export async function generateMetadata({ params }) {
   const { name } = await getClass(params.classId);
+
+  let classNames;
+  if (name === "orchestra" || name === "Event Center" || name === "Jazz-Band") {
+    classNames = "";
+  } else {
+    classNames = "class";
+  }
+
   return {
-    title: `Class ${name}`,
+    title: ` ${name}  ${classNames}`,
   };
 }
 
@@ -34,6 +42,12 @@ export default async function Page({ params }) {
   const { id, name, maxCapacity, regularPrice, discount, image, description } =
     danceClass;
 
+  let classNames;
+  if (name === "orchestra" || name === "Event Center" || name === "Jazz-Band") {
+    classNames = "";
+  } else {
+    classNames = "class";
+  }
   return (
     <div className="max-w-6xl mx-auto mt-8">
       <div className="grid grid-cols-[3fr_4fr] gap-20 border border-primary-800 py-3 px-10 mb-24">
@@ -42,13 +56,13 @@ export default async function Page({ params }) {
             fill
             className="object-cover"
             src={image}
-            alt={`Class ${name}`}
+            alt={` ${name}  ${classNames}`}
           />
         </div>
 
         <div>
           <h3 className="text-accent-100 font-black text-7xl mb-5 translate-x-[-254px] bg-primary-950 p-6 pb-1 w-[150%]">
-            Class {name}
+            {name} {classNames}
           </h3>
 
           <p className="text-lg text-primary-300 mb-10">{description}</p>
@@ -65,7 +79,7 @@ export default async function Page({ params }) {
             <li className="flex gap-3 items-center">
               <MapPinIcon className="h-5 w-5 text-primary-600" />
               <span className="text-lg">
-                Located in the heart of the{" "}
+                Located in the heart of the
                 <span className="font-bold">Las Vegas</span> (United States)
               </span>
             </li>

@@ -5,20 +5,28 @@ import Link from "next/link";
 function ClasseCard({ danceClass }) {
   const { id, name, maxCapacity, regularPrice, discount, image } = danceClass;
 
+  let classNames;
+  if (name === "Event Center" || name === "Jazz-Band" || name === "orchestra") {
+    classNames = "";
+  } else {
+    classNames = "class";
+  }
+  console.log("name from the card", name);
+
   return (
     <div className="flex border-primary-800 border">
       <div className="flex-1 relative">
         <Image
           fill
           src={image}
-          alt={`Class ${name}`}
+          alt={` ${name}  ${classNames}`}
           className="object-cover border-r border-primary-800"
         />
       </div>
       <div className="flex-grow">
         <div className="pt-5 pb-4 px-7 bg-primary-950">
           <h3 className="text-accent-500 font-semibold text-2xl mb-3">
-            Class {name}
+            {name} {classNames}
           </h3>
 
           <div className="flex gap-3 items-center mb-2">

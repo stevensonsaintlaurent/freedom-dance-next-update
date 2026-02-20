@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import ClassList from "../_components/ClassList";
 import Spinner from "../_components/Spinner";
 
-// export const revalidate = 0;
+export const revalidate = 3600;
 
 export const metadata = {
   title: "Classes",
