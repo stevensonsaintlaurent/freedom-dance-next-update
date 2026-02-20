@@ -1,15 +1,17 @@
 // "use client";
 
 // import { useEffect, useState } from "react";
+import { unstable_noStore as noStore } from "next/cache";
 import { getData } from "../_lib/data-service";
 import ClasseCard from "./ClasseCard";
 // import { supabase } from "../_lib/supabase";
+
 export const metadata = {
   title: "Classes",
 };
 
-export const revalidate = 0;
 async function ClassList() {
+  noStore();
   // const [classes, setClasses] = useState([]);
   // const [loading, setLoading] = useState(true);
   // const [error, setError] = useState(null);
