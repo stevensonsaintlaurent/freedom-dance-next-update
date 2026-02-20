@@ -11,7 +11,6 @@ function ClasseCard({ danceClass }) {
   } else {
     classNames = "class";
   }
-  console.log("name from the card", name);
 
   return (
     <div className="flex border-primary-800 border">
