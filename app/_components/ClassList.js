@@ -10,7 +10,7 @@ export const metadata = {
   title: "Classes",
 };
 
-async function ClassList() {
+async function ClassList({ filter }) {
   // const [classes, setClasses] = useState([]);
   // const [loading, setLoading] = useState(true);
   // const [error, setError] = useState(null);
@@ -33,9 +33,20 @@ async function ClassList() {
   const classes = await getData();
 
   if (!classes.length) return null;
+  let displayedClasses;
+  if (filter === "all") displayedClasses = classes;
+  if (filter === "small")
+    displayedClasses = classes.filter((c) => c.maxCapacity <= 20);
+  if (filter === "medium")
+    displayedClasses = classes.filter(
+      (c) => c.maxCapacity > 20 && c.maxCapacity <= 50,
+    );
+  if (filter === "large")
+    displayedClasses = classes.filter((c) => c.maxCapacity >= 150);
+
   return (
     <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 xl:gap-14">
-      {classes.map((danceClass) => (
+      {displayedClasses.map((danceClass) => (
         <ClasseCard danceClass={danceClass} key={danceClass.id} />
       ))}
     </div>

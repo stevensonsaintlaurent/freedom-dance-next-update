@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import ClassList from "../_components/ClassList";
 import Spinner from "../_components/Spinner";
+import Filter from "../_components/Filter";
 
 export const revalidate = 3600;
 
@@ -8,7 +9,10 @@ export const metadata = {
   title: "Classes",
 };
 
-export default function Page() {
+export default function Page({ searchParams }) {
+  console.log("searchParams in page:", searchParams);
+  const filter = searchParams?.capacity ?? "all";
+
   return (
     <div>
       <h1 className="text-4xl mb-5 text-accent-400 font-medium">
@@ -21,8 +25,11 @@ export default function Page() {
         to celebrate creativity and connection. Thank you for being here, and we
         can’t wait to create and perform together!
       </p>
-      <Suspense fallback={<Spinner />}>
-        <ClassList />
+      <div className="flex justify-end mb-8">
+        <Filter />
+      </div>
+      <Suspense fallback={<Spinner />} key={filter}>
+        <ClassList filter={filter} />
       </Suspense>
     </div>
   );
