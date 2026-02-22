@@ -106,12 +106,13 @@ export async function getBookedDatesByClassId(classId) {
 
   if (error) {
     console.error(error.message);
-    throw new Error("Bookings could not get loaded");
+    // throw new Error("Bookings could not get loaded");
   }
 
+  console.log("bookings for the class:", data);
   // Converting to actual dates to be displayed in the date picker
   const bookedDates = data
-    .map((booking) => {
+    ?.map((booking) => {
       return eachDayOfInterval({
         start: new Date(booking.startDate),
         end: new Date(booking.endDate),
