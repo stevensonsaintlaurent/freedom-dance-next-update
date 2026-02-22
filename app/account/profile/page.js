@@ -39,10 +39,10 @@ export default function Page() {
 
         <div className="space-y-2">
           <div className="flex items-center justify-between">
-            <label htmlFor="nationality">Where are you from?</label>
+            <label htmlFor="nationality">Date of birth</label>
             <img
               src={countryFlag}
-              alt="Country flag"
+              alt="Date of birth"
               className="h-5 rounded-sm"
             />
           </div>
@@ -56,8 +56,9 @@ export default function Page() {
         </div>
 
         <div className="space-y-2">
-          <label htmlFor="nationalID">National ID number</label>
+          <label htmlFor="nationalID">Preferred language</label>
           <input
+            type="calendar"
             name="nationalID"
             className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm"
           />
