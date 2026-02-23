@@ -3,7 +3,7 @@ import ClassList from "../_components/ClassList";
 import Spinner from "../_components/Spinner";
 import Filter from "../_components/Filter";
 
-export const revalidate = 3600;
+export const revalidate = 0;
 
 export const metadata = {
   title: "Classes",
