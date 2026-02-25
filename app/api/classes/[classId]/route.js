@@ -9,7 +9,6 @@ export async function GET(request, { params }) {
       getBookedDatesByClassId(classId),
     ]);
 
-    console.log("dance class from route", danceClass);
     return Response.json({ danceClass, bookedDates });
   } catch {
     return Response.json({ error: "Failed to fetch data" }, { status: 500 });

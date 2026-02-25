@@ -20,7 +20,6 @@ export async function getClass(id) {
     NotFound();
   }
 
-  console.log("data from sigle id :", data);
   return data;
 }
 
@@ -110,7 +109,6 @@ export async function getBookedDatesByClassId(classId) {
     // throw new Error("Bookings could not get loaded");
   }
 
-  console.log("bookings for the class:", data);
   // Converting to actual dates to be displayed in the date picker
   const bookedDates = data
     ?.map((booking) => {

@@ -10,7 +10,6 @@ export const metadata = {
 };
 
 export default function Page({ searchParams }) {
-  console.log("searchParams in page:", searchParams);
   const filter = searchParams?.capacity ?? "all";
 
   return (
