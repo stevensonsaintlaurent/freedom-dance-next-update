@@ -26,6 +26,7 @@ import { Suspense } from "react";
 
 export async function generateMetadata({ params }) {
   const { name } = await getClass(params.classId);
+  console.log("params from getClass:", params);
 
   let classNames;
   if (name === "orchestra" || name === "Event Center" || name === "Jazz-Band") {
@@ -51,7 +52,7 @@ export default async function Page({ params }) {
   const settings = await getSettings();
   const bookedDate = await getBookedDatesByClassId(params.classId);
   const { name } = danceClass;
-  console.log("dance class from the id page:", danceClass);
+  console.log("dance class from  classId:", danceClass);
 
   let classNames;
   if (name === "Event Center" || name === "Jazz-Band") {

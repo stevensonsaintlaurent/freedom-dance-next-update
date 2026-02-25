@@ -20,6 +20,7 @@ export async function getClass(id) {
     NotFound();
   }
 
+  console.log("data from sigle id :", data);
   return data;
 }
 
