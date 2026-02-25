@@ -1,4 +1,4 @@
-import NextAuth from "next-auth/next";
+import NextAuth from "next-auth";
 import Google from "next-auth/providers/google";
 
 const authConfig = {
