@@ -24,12 +24,11 @@ const authConfig = {
       }
     },
 
-    async session({ session, user }) {
+    async session({ sesion, user }) {
       const guest = await getGuest(session.user.email);
       session.user.guestId = guest.id;
-      return session;
+      return sesion;
     },
-    git,
   },
 
   pages: {
