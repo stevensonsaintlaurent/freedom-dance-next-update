@@ -1,17 +1,23 @@
 "use client";
 
 import { useState } from "react";
+import { updateProfile } from "../_lib/action";
 
-function UpdateProfileForm({ children }) {
+function UpdateProfileForm({ guests = {}, children }) {
   const [count, setCount] = useState(0);
-  const countryFlag = "pt.jpg";
-  const nationality = "portugal";
+  const { fullName, email, nationalID, countryFlag } = guests;
+
   return (
-    <form className="bg-primary-900 py-8 px-12 text-lg flex gap-6 flex-col">
+    <form
+      action={updateProfile}
+      className="bg-primary-900 py-8 px-12 text-lg flex gap-6 flex-col"
+    >
       <div className="space-y-2">
         <label>Full name</label>
         <input
+          name="fullName"
           disabled
+          defaultValue={guests === null ? fullName : "Stevenson StLaurent"}
           className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm disabled:cursor-not-allowed disabled:bg-gray-600 disabled:text-gray-400"
         />
       </div>
@@ -19,7 +25,11 @@ function UpdateProfileForm({ children }) {
       <div className="space-y-2">
         <label>Email address</label>
         <input
+          name="email"
           disabled
+          defaultValue={
+            guests === null ? email : "stevensonstlaurent@gmail.com"
+          }
           className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm disabled:cursor-not-allowed disabled:bg-gray-600 disabled:text-gray-400"
         />
       </div>
@@ -28,7 +38,7 @@ function UpdateProfileForm({ children }) {
         <div className="flex items-center justify-between">
           <label htmlFor="nationality">Date of birth</label>
           <img
-            src={countryFlag}
+            src={guests === null ? "countrylag" : countryFlag}
             alt="Date of birth"
             className="h-5 rounded-sm"
           />
@@ -40,6 +50,7 @@ function UpdateProfileForm({ children }) {
         <input
           type="calendar"
           name="nationalID"
+          defaultValue={guests === null ? "nationalID" : nationalID}
           className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm"
         />
       </div>
