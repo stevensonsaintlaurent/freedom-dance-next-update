@@ -6,7 +6,7 @@ export const metadata = {
 
 export async function Page() {
   const session = await auth();
-  console.log("session account:", session);
+
   const firstName = session.user.name.slice(0, 13);
   return (
     <h2 className="font-semibold text-2xl text-accent-400 mb-7">
