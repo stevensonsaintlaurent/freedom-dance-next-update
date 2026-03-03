@@ -55,7 +55,6 @@ export async function getGuest(email) {
     .eq("email", email)
     .single();
 
-  console.log("data guest", data);
   // No error here! We handle the possibility of no guest in the sign in callback
   return data;
 }

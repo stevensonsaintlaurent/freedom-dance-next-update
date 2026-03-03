@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { updateProfile } from "../_lib/action";
 import { useFormStatus } from "react-dom";
-import { PencilIcon } from "@heroicons/react/16/solid";
 
 function UpdateProfileForm({ guests = {}, children }) {
   const [count, setCount] = useState(0);
